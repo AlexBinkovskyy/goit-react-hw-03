@@ -20,6 +20,8 @@
 .userName {
   display: flex;
   margin-bottom: 10px;
+  text-align: center;
+  align-items: center;
 }
 .userPhone {
   display: flex;
