@@ -64,12 +64,12 @@ select {
 .rootMain {
   text-align: center;
 }
-.header{
+.header {
   display: block;
   margin-bottom: 20px;
   text-align: left;
 }
-#root{
+#root {
   width: 400px;
   margin: 0 auto;
 }
