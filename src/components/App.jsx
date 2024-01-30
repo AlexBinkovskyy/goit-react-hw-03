@@ -11,7 +11,6 @@ const contacts = [
   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 ];
 
-console.log(window.localStorage.getItem('cardz'));
 export const App = () => {
   const [contactCards, setContactCards] = useState(
     window.localStorage.getItem('cardz') !== null
