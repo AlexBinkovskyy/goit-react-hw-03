@@ -2,9 +2,7 @@ import { FaUserTie } from 'react-icons/fa';
 import { FaPhoneAlt } from 'react-icons/fa';
 import CSS from './Contact.module.css';
 
-
-export function Contact({ name, number}) {
-
+export function Contact({ name, number, id, handleDelete }) {
   return (
     <li className={CSS.listItem}>
       <div className={CSS.userName}>
@@ -15,7 +13,11 @@ export function Contact({ name, number}) {
         <FaPhoneAlt className={CSS.icon} size="22px" />
         <p className={CSS.title}>{number}</p>
       </div>
-      <button type="button" className={CSS.button}>
+      <button
+        type="button"
+        className={CSS.button}
+        onClick={() => handleDelete(id)}
+      >
         Delete contact
       </button>
     </li>
