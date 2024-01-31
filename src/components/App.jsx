@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ContactList } from './ContactList/ContactList';
 import { SearchBar } from './SearchBar/SearchBar';
 import { ContactForm } from './ContactForm/ContactForm';
-import { nanoid } from 'nanoid';
+
 
 const contacts = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -38,13 +38,7 @@ export const App = () => {
     });
   };
 
-  const handleSubmit = (values, actions) => {
-    actions.resetForm();
-    return addContactCard({
-      ...values,
-      id: nanoid(),
-    });
-  };
+
 
   const activeCards = contactCards.filter(item =>
     item.name.toLowerCase().includes(inputValue.toLowerCase())
@@ -53,7 +47,7 @@ export const App = () => {
   return (
     <div>
       <h1 className="header">Phonebook</h1>
-      <ContactForm handleSubmit={handleSubmit} />
+      <ContactForm addContactCard={addContactCard} />
       <SearchBar inputValue={inputValue} handleFilter={handleFilter} />
       <ContactList contacts={activeCards} handleDelete={handleDelete} />
     </div>

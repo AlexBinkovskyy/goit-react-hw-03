@@ -1,9 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
+import { nanoid } from 'nanoid';
 import CSS from './ContactForm.module.css';
 
-export function ContactForm({ handleSubmit }) {
+export function ContactForm({addContactCard}) {
   const initialValues = {
     name: '',
     number: '',
@@ -19,6 +20,14 @@ export function ContactForm({ handleSubmit }) {
       .required('Required name'),
     number: Yup.number().integer().required('Required number'),
   });
+
+  const handleSubmit = (values, actions) => {
+    actions.resetForm();
+    return addContactCard({
+      ...values,
+      id: nanoid(),
+    });
+  };
 
   return (
     <Formik
